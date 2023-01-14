@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  schedule:
+    - cron: "15 0 * * *"
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    env:
+      MAVEN_CLI_OPTS: "--batch-mode --no-transfer-progress --errors --fail-at-end --show-version"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
+          cache: 'maven'
+      - name: Build with Maven
+        run: >
+          ./mvnw $MAVEN_CLI_OPTS
+          clean verify
