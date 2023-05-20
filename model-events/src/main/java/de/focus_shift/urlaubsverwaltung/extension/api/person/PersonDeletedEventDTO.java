@@ -10,6 +10,7 @@ import lombok.Value;
 public class PersonDeletedEventDTO {
   @NonNull private UUID id;
   @NonNull private Instant createdAt;
+  @NonNull private String tenantId;
   @NonNull private Integer personId;
   @NonNull private String username;
   @NonNull private String lastName;
@@ -18,16 +19,19 @@ public class PersonDeletedEventDTO {
   private boolean enabled;
 
   public static PersonDeletedEventDTO create(
+      String tenantId,
       Integer personId,
       String username,
       String lastName,
       String firstName,
       String email,
       boolean enabled) {
-    return create(personId, username, lastName, firstName, email, enabled, Clock.systemUTC());
+    return create(
+        tenantId, personId, username, lastName, firstName, email, enabled, Clock.systemUTC());
   }
 
   public static PersonDeletedEventDTO create(
+      String tenantId,
       Integer personId,
       String username,
       String lastName,
@@ -38,6 +42,7 @@ public class PersonDeletedEventDTO {
     return new PersonDeletedEventDTO(
         UUID.randomUUID(),
         Instant.now(clock),
+        tenantId,
         personId,
         username,
         lastName,
