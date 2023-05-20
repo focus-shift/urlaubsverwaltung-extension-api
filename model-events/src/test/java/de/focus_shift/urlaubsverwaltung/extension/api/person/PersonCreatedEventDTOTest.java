@@ -11,6 +11,7 @@ class PersonCreatedEventDTOTest {
   void happyPath() {
     final PersonCreatedEventDTO event =
         PersonCreatedEventDTO.create(
+            "default",
             1,
             "61f886fd-e07c-4cc3-add0-d869520172e1",
             "Muster",
@@ -21,6 +22,7 @@ class PersonCreatedEventDTOTest {
     assertThat(event).isNotNull();
     assertThat(event.getId()).isNotNull();
     assertThat(event.getCreatedAt()).isBeforeOrEqualTo(Instant.now());
+    assertThat(event.getTenantId()).isEqualTo("default");
     assertThat(event.getUsername()).isEqualTo("61f886fd-e07c-4cc3-add0-d869520172e1");
     assertThat(event.getLastName()).isEqualTo("Muster");
     assertThat(event.getFirstName()).isEqualTo("Marlene");

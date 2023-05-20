@@ -11,6 +11,7 @@ public class PersonDisabledEventDTO {
 
   @NonNull private UUID id;
   @NonNull private Instant createdAt;
+  @NonNull private String tenantId;
   @NonNull private Integer personId;
   @NonNull private String username;
   @NonNull private String lastName;
@@ -19,11 +20,17 @@ public class PersonDisabledEventDTO {
   @NonNull private boolean enabled = false;
 
   public static PersonDisabledEventDTO create(
-      Integer personId, String username, String lastName, String firstName, String email) {
-    return create(personId, username, lastName, firstName, email, Clock.systemUTC());
+      String tenantId,
+      Integer personId,
+      String username,
+      String lastName,
+      String firstName,
+      String email) {
+    return create(tenantId, personId, username, lastName, firstName, email, Clock.systemUTC());
   }
 
   public static PersonDisabledEventDTO create(
+      String tenantId,
       Integer personId,
       String username,
       String lastName,
@@ -31,6 +38,13 @@ public class PersonDisabledEventDTO {
       String email,
       Clock clock) {
     return new PersonDisabledEventDTO(
-        UUID.randomUUID(), Instant.now(clock), personId, username, lastName, firstName, email);
+        UUID.randomUUID(),
+        Instant.now(clock),
+        tenantId,
+        personId,
+        username,
+        lastName,
+        firstName,
+        email);
   }
 }
