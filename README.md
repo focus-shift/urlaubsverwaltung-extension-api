@@ -59,13 +59,13 @@ The following extension points are provided:
 
 * [ ] absence
 * [ ] account
-* [ ] application
+* [x] application
 * [ ] department
 * [ ] overtime
 * [x] person
 * [ ] publicholiday
 * [ ] settings
-* [ ] sicknote
+* [x] sicknote
 * [ ] user
 * [ ] workingtime
 
