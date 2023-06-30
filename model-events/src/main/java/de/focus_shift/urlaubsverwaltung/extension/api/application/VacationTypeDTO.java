@@ -9,8 +9,9 @@ import lombok.extern.jackson.Jacksonized;
 @Builder
 @Jacksonized
 public class VacationTypeDTO {
-  @NonNull private String category;
-  private boolean requiresApproval;
-  @NonNull private String color;
-  private boolean visibleToEveryone;
+  @NonNull String category;
+  boolean requiresApprovalToApply;
+  boolean requiresApprovalToCancel;
+  @NonNull String color;
+  boolean visibleToEveryone;
 }
