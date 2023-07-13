@@ -12,5 +12,5 @@ import lombok.extern.jackson.Jacksonized;
 public class SickNotePeriodDTO {
   @NonNull Instant startDate;
   @NonNull Instant endDate;
-  @NonNull DayLength dayLength;
+  DayLength dayLength;
 }
