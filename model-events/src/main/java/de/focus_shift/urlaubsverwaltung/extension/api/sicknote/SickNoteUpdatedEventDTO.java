@@ -23,7 +23,7 @@ public class SickNoteUpdatedEventDTO {
 
   @NonNull private SickNotePersonDTO person;
 
-  @NonNull private SickNotePersonDTO applier;
+  private SickNotePersonDTO applier;
 
   @NonNull private String type;
   @NonNull private String status;

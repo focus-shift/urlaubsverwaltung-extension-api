@@ -25,7 +25,7 @@ public class ApplicationCreatedFromSickNoteEventDTO {
 
     @NonNull private ApplicationPersonDTO person;
 
-    @NonNull private ApplicationPersonDTO appliedBy;
+    private ApplicationPersonDTO appliedBy;
 
     @NonNull private ApplicationPeriodDTO period;
 

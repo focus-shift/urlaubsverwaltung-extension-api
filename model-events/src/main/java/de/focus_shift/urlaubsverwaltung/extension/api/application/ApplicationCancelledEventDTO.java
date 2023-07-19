@@ -23,9 +23,9 @@ public class ApplicationCancelledEventDTO {
 
   @NonNull private ApplicationPersonDTO person;
 
-  @NonNull private ApplicationPersonDTO appliedBy;
+  private ApplicationPersonDTO appliedBy;
 
-  @NonNull private ApplicationPersonDTO cancelledBy;
+  private ApplicationPersonDTO cancelledBy;
 
   private boolean twoStageApproval;
 

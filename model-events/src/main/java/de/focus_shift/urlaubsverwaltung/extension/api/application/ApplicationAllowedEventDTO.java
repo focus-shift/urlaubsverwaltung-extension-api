@@ -23,9 +23,9 @@ public class ApplicationAllowedEventDTO {
 
   @NonNull private ApplicationPersonDTO person;
 
-  @NonNull private ApplicationPersonDTO appliedBy;
+  private ApplicationPersonDTO appliedBy;
 
-  @NonNull private ApplicationPersonDTO allowedBy;
+  private ApplicationPersonDTO allowedBy;
 
   private boolean twoStageApproval;
 
