@@ -17,6 +17,8 @@ public class ApplicationCreatedFromSickNoteEventDTO {
 
     @NonNull private UUID id;
 
+    @NonNull private Integer sourceId;
+
     @NonNull private Instant createdAt;
 
     @NonNull private String tenantId;
