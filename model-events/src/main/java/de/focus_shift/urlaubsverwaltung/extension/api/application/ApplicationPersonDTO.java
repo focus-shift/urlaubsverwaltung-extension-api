@@ -9,6 +9,6 @@ import lombok.extern.jackson.Jacksonized;
 @Builder
 @Jacksonized
 public class ApplicationPersonDTO {
-  @NonNull private Integer personId;
+  @NonNull private Long personId;
   @NonNull private String username;
 }

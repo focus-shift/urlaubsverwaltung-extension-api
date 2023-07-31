@@ -15,7 +15,7 @@ import lombok.extern.jackson.Jacksonized;
 public class SickNoteConvertedToApplicationEventDTO {
   @NonNull private UUID id;
 
-  @NonNull private Integer sourceId;
+  @NonNull private Long sourceId;
 
   @NonNull private Instant createdAt;
 

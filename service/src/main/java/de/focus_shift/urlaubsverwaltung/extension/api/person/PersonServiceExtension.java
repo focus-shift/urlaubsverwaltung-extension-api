@@ -28,15 +28,15 @@ public interface PersonServiceExtension {
    * @param person the person to be deleted
    * @param signedInUserId the personId who wants to delete the given person
    */
-  void delete(PersonDTO person, Integer signedInUserId);
+  void delete(PersonDTO person, Long signedInUserId);
 
   /**
    * finds a {@link PersonDTO} in the database by its primary key.
    *
-   * @param id Integer the id of the person
+   * @param id Long the id of the person
    * @return optional {@link PersonDTO} for the given id
    */
-  Optional<PersonDTO> getPersonById(Integer id);
+  Optional<PersonDTO> getPersonById(Long id);
 
   /**
    * finds a {@link PersonDTO} in the database by username.

@@ -12,7 +12,7 @@ class PersonCreatedEventDTOTest {
     final PersonCreatedEventDTO event =
         PersonCreatedEventDTO.create(
             "default",
-            1,
+            1L,
             "61f886fd-e07c-4cc3-add0-d869520172e1",
             "Muster",
             "Marlene",
