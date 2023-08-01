@@ -16,7 +16,7 @@ public class PersonDeletedEventDTO {
   @NonNull private UUID id;
   @NonNull private Instant createdAt;
   @NonNull private String tenantId;
-  @NonNull private Integer personId;
+  @NonNull private Long personId;
   @NonNull private String username;
   @NonNull private String lastName;
   @NonNull private String firstName;
@@ -25,7 +25,7 @@ public class PersonDeletedEventDTO {
 
   public static PersonDeletedEventDTO create(
       String tenantId,
-      Integer personId,
+      Long personId,
       String username,
       String lastName,
       String firstName,
@@ -37,7 +37,7 @@ public class PersonDeletedEventDTO {
 
   public static PersonDeletedEventDTO create(
       String tenantId,
-      Integer personId,
+      Long personId,
       String username,
       String lastName,
       String firstName,

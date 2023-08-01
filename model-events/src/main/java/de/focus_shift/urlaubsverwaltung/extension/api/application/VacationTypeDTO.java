@@ -9,7 +9,7 @@ import lombok.extern.jackson.Jacksonized;
 @Builder
 @Jacksonized
 public class VacationTypeDTO {
-  @NonNull Integer sourceId;
+  @NonNull Long sourceId;
   @NonNull String category;
   boolean requiresApprovalToApply;
   boolean requiresApprovalToCancel;
