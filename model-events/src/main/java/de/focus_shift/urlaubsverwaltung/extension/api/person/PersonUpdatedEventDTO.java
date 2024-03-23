@@ -3,7 +3,6 @@ package de.focus_shift.urlaubsverwaltung.extension.api.person;
 import java.time.Clock;
 import java.time.Instant;
 import java.util.UUID;
-
 import lombok.Builder;
 import lombok.NonNull;
 import lombok.Value;
