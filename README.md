@@ -5,7 +5,7 @@ This project provides DTOs and service interfaces to write own extensions for [U
 
 ## Requirements
 
-This project requires Java 11 compiler.
+This project requires Java 21 compiler.
 
 
 ## Usage
@@ -68,6 +68,14 @@ The following extension points are provided:
 * [x] sicknote
 * [ ] user
 * [ ] workingtime
+
+## Compatibility
+
+| Extension API Version | Urlaubsverwaltung Version | Java Version |
+|-----------------------|---------------------------|--------------|
+| 1.x.x                 | 5.x.x                     | 21.x         |
+| 0.x.x                 | 4.x.x                     | 11.x         |
+
 
 
 ## License
