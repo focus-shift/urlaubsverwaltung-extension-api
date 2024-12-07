@@ -16,10 +16,18 @@ public class PersonDTO {
   @NonNull private String email;
   @Builder.Default private boolean enabled = true;
   @NonNull private Set<RoleDTO> permissions;
+  @NonNull private Set<MailNotificationDTO> notifications;
 
   public PersonDTO disable() {
     return new PersonDTO(
-        getId(), getUsername(), getLastName(), getFirstName(), getEmail(), false, Set.of());
+        getId(),
+        getUsername(),
+        getLastName(),
+        getFirstName(),
+        getEmail(),
+        false,
+        Set.of(),
+        getNotifications());
   }
 
   public PersonDTO enable() {
@@ -30,6 +38,7 @@ public class PersonDTO {
         getFirstName(),
         getEmail(),
         true,
-        Set.of(RoleDTO.USER));
+        Set.of(RoleDTO.USER),
+        getNotifications());
   }
 }

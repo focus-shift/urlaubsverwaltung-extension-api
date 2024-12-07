@@ -18,6 +18,7 @@ class PersonDTOTest {
             .firstName("Marlene")
             .email("marlene.muster@example.org")
             .permissions(Set.of(RoleDTO.USER))
+            .notifications(Set.of(MailNotificationDTO.NOTIFICATION_EMAIL_APPLICATION_APPLIED))
             .build();
 
     assertThat(person).isNotNull();
@@ -28,6 +29,8 @@ class PersonDTOTest {
     assertThat(person.getEmail()).isEqualTo("marlene.muster@example.org");
     assertThat(person.isEnabled()).isTrue();
     assertThat(person.getPermissions()).containsOnly(RoleDTO.USER);
+    assertThat(person.getNotifications())
+        .containsOnly(MailNotificationDTO.NOTIFICATION_EMAIL_APPLICATION_APPLIED);
   }
 
   @Test
@@ -55,6 +58,7 @@ class PersonDTOTest {
         .firstName("Marlene")
         .email("marlene.muster@example.org")
         .permissions(Set.of(RoleDTO.USER))
+        .notifications(Set.of(MailNotificationDTO.NOTIFICATION_EMAIL_APPLICATION_APPLIED))
         .build();
   }
 }
