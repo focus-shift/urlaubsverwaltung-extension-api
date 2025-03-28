@@ -73,6 +73,7 @@ The following extension points are provided:
 
 | Extension API Version | Urlaubsverwaltung Version | Java Version |
 |-----------------------|---------------------------|--------------|
+| 2.x.x                 | 5.x.x                     | 21.x         |
 | 1.x.x                 | 5.x.x                     | 21.x         |
 | 0.x.x                 | 4.x.x                     | 11.x         |
 
