@@ -1,8 +1,6 @@
 package de.focus_shift.urlaubsverwaltung.extension.api.sicknote;
 
 import java.time.Instant;
-import java.time.LocalDate;
-import java.util.Set;
 import java.util.UUID;
 import lombok.Builder;
 import lombok.NonNull;
@@ -31,6 +29,4 @@ public class SickNoteAcceptedEventDTO {
   @NonNull private SickNotePeriodDTO period;
 
   private SickNotePeriodDTO medicalCertificatePeriod;
-
-  @NonNull private Set<LocalDate> absentWorkingDays;
 }
