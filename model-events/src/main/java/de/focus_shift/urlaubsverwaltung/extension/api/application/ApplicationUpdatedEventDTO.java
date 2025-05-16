@@ -1,5 +1,6 @@
 package de.focus_shift.urlaubsverwaltung.extension.api.application;
 
+import java.time.Duration;
 import java.time.Instant;
 import java.util.UUID;
 import lombok.Builder;
@@ -36,4 +37,6 @@ public class ApplicationUpdatedEventDTO {
   @NonNull private String status;
 
   private boolean teamInformed;
+
+  private Duration hours;
 }
