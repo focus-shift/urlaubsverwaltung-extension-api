@@ -10,6 +10,8 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <name>Urlaubsverwaltung Extension API</name>
+
     <artifactId>model-events</artifactId>
     <packaging>jar</packaging>
 
