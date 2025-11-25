@@ -1,44 +1,60 @@
 package de.focus_shift.urlaubsverwaltung.extension.api.person;
 
-import java.util.Set;
 import lombok.Builder;
 import lombok.NonNull;
-import lombok.Value;
 
-@Value
-@Builder
-public class PersonDTO {
-  private Long id;
-  @NonNull private String username;
-  @NonNull private String lastName;
+import java.util.Set;
 
-  @NonNull private String firstName;
-  @NonNull private String email;
-  @Builder.Default private boolean enabled = true;
-  @NonNull private Set<RoleDTO> permissions;
-  @NonNull private Set<MailNotificationDTO> notifications;
+import static de.focus_shift.urlaubsverwaltung.extension.api.person.RoleDTO.USER;
 
-  public PersonDTO disable() {
-    return new PersonDTO(
-        getId(),
-        getUsername(),
-        getLastName(),
-        getFirstName(),
-        getEmail(),
-        false,
-        Set.of(),
-        getNotifications());
-  }
 
-  public PersonDTO enable() {
-    return new PersonDTO(
-        getId(),
-        getUsername(),
-        getLastName(),
-        getFirstName(),
-        getEmail(),
-        true,
-        Set.of(RoleDTO.USER),
-        getNotifications());
-  }
+public record PersonDTO(
+        Long id,
+        @NonNull String username,
+        @NonNull String lastName,
+        @NonNull String firstName,
+        @NonNull String email,
+        boolean enabled,
+        @NonNull Set<RoleDTO> permissions,
+        @NonNull Set<MailNotificationDTO> notifications
+) {
+
+    @Builder
+    public PersonDTO(
+            Long id,
+            @NonNull String username,
+            @NonNull String lastName,
+            @NonNull String firstName,
+            @NonNull String email,
+            @NonNull Set<RoleDTO> permissions,
+            @NonNull Set<MailNotificationDTO> notifications
+    ) {
+        this(id, username, lastName, firstName, email, true, permissions, notifications);
+    }
+
+    public PersonDTO disable() {
+        return new PersonDTO(
+                id,
+                username,
+                lastName,
+                firstName,
+                email,
+                false,
+                Set.of(),
+                notifications
+        );
+    }
+
+    public PersonDTO enable() {
+        return new PersonDTO(
+                id,
+                username,
+                lastName,
+                firstName,
+                email,
+                true,
+                Set.of(USER),
+                notifications
+        );
+    }
 }
