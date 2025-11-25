@@ -20,13 +20,13 @@ class PersonUpdatedEventDTOTest {
             true);
 
     assertThat(event).isNotNull();
-    assertThat(event.getId()).isNotNull();
-    assertThat(event.getCreatedAt()).isBeforeOrEqualTo(Instant.now());
-    assertThat(event.getTenantId()).isEqualTo("default");
-    assertThat(event.getUsername()).isEqualTo("61f886fd-e07c-4cc3-add0-d869520172e1");
-    assertThat(event.getLastName()).isEqualTo("Muster");
-    assertThat(event.getFirstName()).isEqualTo("Marlene");
-    assertThat(event.getEmail()).isEqualTo("marlene.muster@example.org");
-    assertThat(event.isEnabled()).isTrue();
+    assertThat(event.id()).isNotNull();
+    assertThat(event.createdAt()).isBeforeOrEqualTo(Instant.now());
+    assertThat(event.tenantId()).isEqualTo("default");
+    assertThat(event.username()).isEqualTo("61f886fd-e07c-4cc3-add0-d869520172e1");
+    assertThat(event.lastName()).isEqualTo("Muster");
+    assertThat(event.firstName()).isEqualTo("Marlene");
+    assertThat(event.email()).isEqualTo("marlene.muster@example.org");
+    assertThat(event.enabled()).isTrue();
   }
 }

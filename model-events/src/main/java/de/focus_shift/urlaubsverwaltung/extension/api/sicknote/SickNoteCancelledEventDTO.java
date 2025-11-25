@@ -1,32 +1,22 @@
 package de.focus_shift.urlaubsverwaltung.extension.api.sicknote;
 
-import java.time.Instant;
-import java.util.UUID;
 import lombok.Builder;
 import lombok.NonNull;
-import lombok.Value;
-import lombok.extern.jackson.Jacksonized;
 
-@Value
+import java.time.Instant;
+import java.util.UUID;
+
 @Builder
-@Jacksonized
-public class SickNoteCancelledEventDTO {
-  @NonNull private UUID id;
-
-  @NonNull private Long sourceId;
-
-  @NonNull private Instant createdAt;
-
-  @NonNull private String tenantId;
-
-  @NonNull private SickNotePersonDTO person;
-
-  private SickNotePersonDTO applier;
-
-  @NonNull private String type;
-  @NonNull private String status;
-
-  @NonNull private SickNotePeriodDTO period;
-
-  private SickNotePeriodDTO medicalCertificatePeriod;
+public record SickNoteCancelledEventDTO(
+        @NonNull UUID id,
+        @NonNull Long sourceId,
+        @NonNull Instant createdAt,
+        @NonNull String tenantId,
+        @NonNull SickNotePersonDTO person,
+        SickNotePersonDTO applier,
+        @NonNull String type,
+        @NonNull String status,
+        @NonNull SickNotePeriodDTO period,
+        SickNotePeriodDTO medicalCertificatePeriod
+) {
 }

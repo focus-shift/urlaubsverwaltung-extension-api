@@ -10,7 +10,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <name>Urlaubsverwaltung Extension API</name>
+    <name>Urlaubsverwaltung Extension API - model events</name>
 
     <artifactId>model-events</artifactId>
     <packaging>jar</packaging>
@@ -22,7 +22,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
+            <groupId>tools.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
         <dependency>

@@ -10,7 +10,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <name>Urlaubsverwaltung Extension API</name>
+    <name>Urlaubsverwaltung Extension API - service</name>
 
     <artifactId>service</artifactId>
     <packaging>jar</packaging>

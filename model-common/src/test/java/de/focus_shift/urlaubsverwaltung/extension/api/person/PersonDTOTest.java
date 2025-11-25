@@ -22,25 +22,25 @@ class PersonDTOTest {
             .build();
 
     assertThat(person).isNotNull();
-    assertThat(person.getId()).isNull();
-    assertThat(person.getUsername()).isEqualTo("61f886fd-e07c-4cc3-add0-d869520172e1");
-    assertThat(person.getLastName()).isEqualTo("Muster");
-    assertThat(person.getFirstName()).isEqualTo("Marlene");
-    assertThat(person.getEmail()).isEqualTo("marlene.muster@example.org");
-    assertThat(person.isEnabled()).isTrue();
-    assertThat(person.getPermissions()).containsOnly(RoleDTO.USER);
-    assertThat(person.getNotifications())
+    assertThat(person.id()).isNull();
+    assertThat(person.username()).isEqualTo("61f886fd-e07c-4cc3-add0-d869520172e1");
+    assertThat(person.lastName()).isEqualTo("Muster");
+    assertThat(person.firstName()).isEqualTo("Marlene");
+    assertThat(person.email()).isEqualTo("marlene.muster@example.org");
+    assertThat(person.enabled()).isTrue();
+    assertThat(person.permissions()).containsOnly(RoleDTO.USER);
+    assertThat(person.notifications())
         .containsOnly(MailNotificationDTO.NOTIFICATION_EMAIL_APPLICATION_APPLIED);
   }
 
   @Test
   void canBeEnabled() {
-    assertThat(anyPerson().enable().isEnabled()).isTrue();
+    assertThat(anyPerson().enable().enabled()).isTrue();
   }
 
   @Test
   void canBeDisabled() {
-    assertThat(anyPerson().disable().isEnabled()).isFalse();
+    assertThat(anyPerson().disable().enabled()).isFalse();
   }
 
   @Test
