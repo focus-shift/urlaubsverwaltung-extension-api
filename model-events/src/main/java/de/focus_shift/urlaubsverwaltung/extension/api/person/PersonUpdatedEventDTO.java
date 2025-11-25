@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Builder
 public record PersonUpdatedEventDTO(
-        @NonNull UUID id,
+        UUID id,
         @NonNull Instant createdAt,
         @NonNull String tenantId,
         @NonNull Long personId,
@@ -17,7 +17,7 @@ public record PersonUpdatedEventDTO(
         @NonNull String lastName,
         @NonNull String firstName,
         @NonNull String email,
-        @NonNull boolean enabled
+        boolean enabled
 ) {
     public static PersonUpdatedEventDTO create(
             String tenantId,
