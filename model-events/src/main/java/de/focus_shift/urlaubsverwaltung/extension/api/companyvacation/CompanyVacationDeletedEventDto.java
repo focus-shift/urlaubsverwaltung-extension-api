@@ -10,6 +10,6 @@ import java.util.UUID;
 public record CompanyVacationDeletedEventDto(
         @NonNull UUID id,
         @NonNull String sourceId,
-        @NonNull Instant deletedAt,
+        @NonNull Instant createdAt,
         @NonNull String tenantId) {
 }
