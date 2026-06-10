@@ -4,22 +4,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    groups:
-      spring-boot-major-upgrades:
-        patterns:
-          - "org.springframework.boot:*"
-        update-types:
-          - "major"
-      spring-boot-minor-upgrades:
-        patterns:
-          - "org.springframework.boot:*"
-        update-types:
-          - "minor"
-      spring-boot-patch-upgrades:
-        patterns:
-          - "org.springframework.boot:*"
-        update-types:
-          - "patch"
 
   - package-ecosystem: "github-actions"
     directory: "/"
