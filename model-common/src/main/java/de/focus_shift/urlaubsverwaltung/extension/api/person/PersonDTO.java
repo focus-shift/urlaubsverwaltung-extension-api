@@ -3,12 +3,14 @@ package de.focus_shift.urlaubsverwaltung.extension.api.person;
 import lombok.Builder;
 import lombok.NonNull;
 
+import java.time.Instant;
 import java.util.Set;
 
 import static de.focus_shift.urlaubsverwaltung.extension.api.person.RoleDTO.USER;
 
 public record PersonDTO(
         Long id,
+        Instant createdAt,
         @NonNull String username,
         @NonNull String lastName,
         @NonNull String firstName,
@@ -21,6 +23,7 @@ public record PersonDTO(
     @Builder
     public PersonDTO(
             Long id,
+            Instant createdAt,
             @NonNull String username,
             @NonNull String lastName,
             @NonNull String firstName,
@@ -30,6 +33,7 @@ public record PersonDTO(
             @NonNull Set<MailNotificationDTO> notifications
     ) {
         this.id = id;
+        this.createdAt = createdAt;
         this.username = username;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -49,12 +53,13 @@ public record PersonDTO(
             @NonNull Set<RoleDTO> permissions,
             @NonNull Set<MailNotificationDTO> notifications
     ) {
-        this(id, username, lastName, firstName, email, true, permissions, notifications);
+        this(id, null, username, lastName, firstName, email, true, permissions, notifications);
     }
 
     public PersonDTO disable() {
         return new PersonDTO(
                 id,
+                createdAt,
                 username,
                 lastName,
                 firstName,
@@ -68,6 +73,7 @@ public record PersonDTO(
     public PersonDTO enable() {
         return new PersonDTO(
                 id,
+                createdAt,
                 username,
                 lastName,
                 firstName,

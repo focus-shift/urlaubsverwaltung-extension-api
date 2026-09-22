@@ -2,6 +2,7 @@ package de.focus_shift.urlaubsverwaltung.extension.api.person;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.Instant;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -24,6 +25,7 @@ class PersonDTOTest {
 
         assertThat(person).isNotNull();
         assertThat(person.id()).isNull();
+        assertThat(person.createdAt()).isNull();
         assertThat(person.username()).isEqualTo("61f886fd-e07c-4cc3-add0-d869520172e1");
         assertThat(person.lastName()).isEqualTo("Muster");
         assertThat(person.firstName()).isEqualTo("Marlene");
@@ -61,6 +63,25 @@ class PersonDTOTest {
     }
 
     @Test
+    void ensureThatYouCanSetCreatedAtWithTheBuilder() {
+
+        final Instant createdAt = Instant.parse("2024-01-31T10:15:30.00Z");
+
+        final PersonDTO person =
+                PersonDTO.builder()
+                        .username("61f886fd-e07c-4cc3-add0-d869520172e1")
+                        .lastName("Muster")
+                        .firstName("Marlene")
+                        .email("marlene.muster@example.org")
+                        .createdAt(createdAt)
+                        .permissions(Set.of(RoleDTO.USER))
+                        .notifications(Set.of(MailNotificationDTO.NOTIFICATION_EMAIL_APPLICATION_APPLIED))
+                        .build();
+
+        assertThat(person.createdAt()).isEqualTo(createdAt);
+    }
+
+    @Test
     void canBeEnabled() {
         assertThat(anyPerson().enable().enabled()).isTrue();
     }
@@ -68,6 +89,18 @@ class PersonDTOTest {
     @Test
     void canBeDisabled() {
         assertThat(anyPerson().disable().enabled()).isFalse();
+    }
+
+    @Test
+    void ensureThatEnableKeepsCreatedAt() {
+        final Instant createdAt = Instant.parse("2024-01-31T10:15:30.00Z");
+        assertThat(anyPerson(createdAt).enable().createdAt()).isEqualTo(createdAt);
+    }
+
+    @Test
+    void ensureThatDisableKeepsCreatedAt() {
+        final Instant createdAt = Instant.parse("2024-01-31T10:15:30.00Z");
+        assertThat(anyPerson(createdAt).disable().createdAt()).isEqualTo(createdAt);
     }
 
     @Test
@@ -79,11 +112,16 @@ class PersonDTOTest {
     }
 
     private static PersonDTO anyPerson() {
+        return anyPerson(null);
+    }
+
+    private static PersonDTO anyPerson(Instant createdAt) {
         return PersonDTO.builder()
                 .username("61f886fd-e07c-4cc3-add0-d869520172e1")
                 .lastName("Muster")
                 .firstName("Marlene")
                 .email("marlene.muster@example.org")
+                .createdAt(createdAt)
                 .permissions(Set.of(RoleDTO.USER))
                 .notifications(Set.of(MailNotificationDTO.NOTIFICATION_EMAIL_APPLICATION_APPLIED))
                 .build();
