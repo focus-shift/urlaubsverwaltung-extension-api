@@ -79,6 +79,27 @@ The following extension points are provided:
 | 0.x.x                 | 4.x.x                     | 11.x         |
 
 
+## Release
+
+Releases are published to Maven Central by the [Release workflow](.github/workflows/release.yml),
+which is triggered by pushing a tag starting with `v`.
+
+1. Make sure the [Build workflow](.github/workflows/build.yml) on `main` is green.
+2. Set the release version in the `revision` property of the root `pom.xml`
+   (e.g. `3.5.0-SNAPSHOT` → `3.5.0`) and commit it as `Prepare for next release version v3.5.0`.
+3. Create an annotated tag and push it together with `main`:
+   ```bash
+   git tag -a v3.5.0 -m "Release v3.5.0"
+   git push origin main v3.5.0
+   ```
+   The workflow runs `./mvnw -Prelease deploy`, which signs the artifacts with GPG and
+   publishes them to Maven Central. It requires the repository secrets `CENTRAL_USERNAME`,
+   `CENTRAL_PASSWORD`, `GPG_PRIVATE_KEY` and `GPG_PASSPHRASE`.
+4. Set the next development version (e.g. `3.6.0-SNAPSHOT`), commit it as
+   `Prepare for next development version` and push to `main`.
+
+Releases published to Maven Central cannot be withdrawn, so double-check the version before pushing the tag.
+
 
 ## License
 
